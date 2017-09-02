@@ -1,0 +1,11 @@
+[
+{
+  "name": "button",
+  "text": "按钮",
+  "link": "/button"
+},
+{
+  "name": "input",
+  "text": "输入框",
+  "link": "/input"
+}]
