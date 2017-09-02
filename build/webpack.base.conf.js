@@ -22,7 +22,8 @@ module.exports = {
     extensions: ['.js', '.vue', '.json', '.css', '.less'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('examples')
+      '@': resolve('src/'),
+      docs: resolve('examples/docs/')
     },
     symlinks: false
   },
@@ -35,6 +36,13 @@ module.exports = {
       options: {
         formatter: require('eslint-friendly-formatter')
       }
+    }, {
+      test: /\.md$/,
+      loader: [{
+        loader: "html-loader"
+      }, {
+        loader: "markdown-loader"
+      }]
     }, {
       test: /\.vue$/,
       loader: 'vue-loader',
