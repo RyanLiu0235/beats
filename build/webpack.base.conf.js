@@ -3,6 +3,7 @@ var fs = require('fs')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
+var hljs = require('highlight.js')
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
@@ -39,9 +40,12 @@ module.exports = {
     }, {
       test: /\.md$/,
       loader: [{
-        loader: "html-loader"
+        loader: 'html-loader'
       }, {
-        loader: "markdown-loader"
+        loader: 'markdown-loader',
+        options: {
+          highlight: code => hljs.highlightAuto(code).value
+        }
       }]
     }, {
       test: /\.vue$/,
