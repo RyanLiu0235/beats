@@ -18,4 +18,8 @@ renderer.heading = function(text, level) {
     '">#</a>' + '</h' + level + '>'
 }
 
+renderer.paragraph = function(text) {
+  return '<p class="comp-block-desc">' + text + '</p>'
+}
+
 module.exports = renderer

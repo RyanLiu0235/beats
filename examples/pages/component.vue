@@ -50,13 +50,15 @@ export default {
   .comp-detail-page {
     float: right;
     width: 880px;
-    .comp-title {
-      line-height: 28px;
-      font-size: 24px;
-      color: #222;
-      &:hover {
-        .comp-block-anchor {
-          opacity: 1;
+    .comp {
+      &-title {
+        line-height: 28px;
+        font-size: 24px;
+        color: #222;
+        &:hover {
+          .comp-block-anchor {
+            opacity: 1;
+          }
         }
       }
       &-desc {
@@ -66,19 +68,15 @@ export default {
         color: #333;
       }
     }
-    .comp-block-anchor {
-      margin-left: 4px;
-      color: #00a1d6;
-      opacity: 0;
-      transition: opacity .2s ease;
-    }
-    .comp-block-title {
-      margin-top: 24px;
-      font-size: 20px;
-      color: #222;
-      &:hover {
-        .comp-block-anchor {
-          opacity: 1;
+    .comp-block {
+      &-title {
+        margin-top: 24px;
+        font-size: 20px;
+        color: #222;
+        &:hover {
+          .comp-block-anchor {
+            opacity: 1;
+          }
         }
       }
       &-desc {
@@ -86,6 +84,12 @@ export default {
         margin-top: 5px;
         font-size: 14px;
         color: #333;
+      }
+      &-anchor {
+        margin-left: 4px;
+        color: #00a1d6;
+        opacity: 0;
+        transition: opacity .2s ease;
       }
     }
   }
