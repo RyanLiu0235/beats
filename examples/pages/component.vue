@@ -10,7 +10,11 @@
           </li>
         </ul>
       </div>
-      <router-view></router-view>
+      <div class="comp-detail-page">
+        <!-- <div class="comp-title-wrapper"> -->
+        <router-view></router-view>
+        <!-- </div> -->
+      </div>
     </div>
   </div>
 </template>
