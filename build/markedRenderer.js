@@ -1,3 +1,4 @@
+var hljs = require('highlight.js')
 var marked = require('marked')
 var renderer = new marked.Renderer()
 var comp = ''
@@ -15,11 +16,23 @@ renderer.heading = function(text, level) {
     text +
     '<a class="comp-block-anchor" href="' +
     '/#/components/' + comp + '/#' + text +
-    '">#</a>' + '</h' + level + '>'
+    '">#</a>' +
+    '</h' + level + '>'
 }
 
 renderer.paragraph = function(text) {
   return '<p class="comp-block-desc">' + text + '</p>'
+}
+
+renderer.code = function(code, lang) {
+  return '<div class="comp-demo">' +
+    '<div class="demo">' +
+    code +
+    '</div>' +
+    '<div class="source">' +
+    hljs.highlightAuto(code).value +
+    '</div>'
+  '</div>'
 }
 
 module.exports = renderer
