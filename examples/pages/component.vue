@@ -10,10 +10,8 @@
           </li>
         </ul>
       </div>
-      <div class="comp-detail-page">
-        <!-- <div class="comp-title-wrapper"> -->
+      <div class="comp-demo-page">
         <router-view></router-view>
-        <!-- </div> -->
       </div>
     </div>
   </div>
@@ -51,7 +49,7 @@ export default {
     }
   }
   /* 组件展示页模块 */
-  .comp-detail-page {
+  .comp-demo-page {
     float: right;
     width: 880px;
     .comp {
