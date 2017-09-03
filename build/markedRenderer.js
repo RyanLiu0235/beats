@@ -31,8 +31,8 @@ renderer.code = function(code, lang) {
     '</div>' +
     '<div class="source">' +
     hljs.highlightAuto(code).value +
+    '</div>' +
     '</div>'
-  '</div>'
 }
 
 module.exports = renderer
