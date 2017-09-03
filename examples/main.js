@@ -8,8 +8,6 @@ import router from './router'
 import 'normalize.css'
 import './public/styles/index'
 
-import 'highlight.js/styles/googlecode.css'
-
 if (process.env.NODE_ENV === 'production') {
   Vue.config.productionTip = false
 }

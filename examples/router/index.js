@@ -20,7 +20,7 @@ export default new Router({
       return {
         path: `/components${link}`,
         name,
-        component: resolve => require([`@/components/${name}`], resolve)
+        component: resolve => require([`../components/${name}`], resolve)
       }
     })
   }]
