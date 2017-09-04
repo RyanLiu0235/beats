@@ -95,6 +95,19 @@ export default {
       }
     }
   }
+  .comp-demo {
+    margin: 20px 0;
+    border: 1px solid #f1f3f7;
+    border-radius: 4px;
+    .demo {
+      padding: 20px;
+      border-bottom: 1px solid #f1f3f7;
+    }
+    .source {
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+  }
 }
 
 </style>
