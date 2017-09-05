@@ -1,9 +1,24 @@
-<template>
-  <div class="comp-detail-page">input</div>
-</template>
 <script>
+import { BeInput } from '@'
+import doc from 'docs/input.md'
+
 export default {
-  name: 'comp-input'
+  name: 'comp-input',
+  template: '<div class="comp-demo-wrapper">' + doc + '</div>',
+  components: {
+    BeInput
+  }
 }
 
 </script>
+<style lang="less">
+.comp-demo-wrapper {
+  .be-input {
+    width: 180px;
+  }
+  .be-textarea {
+    width: 380px;
+  }
+}
+
+</style>

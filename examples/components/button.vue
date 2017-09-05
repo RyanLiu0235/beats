@@ -1,10 +1,10 @@
 <script>
 import { BeButton } from '@'
-import buttomDoc from 'docs/button.md'
+import doc from 'docs/button.md'
 
 export default {
   name: 'comp-button',
-  template: '<div class="comp-demo-wrapper">' + buttomDoc + '</div>',
+  template: '<div class="comp-demo-wrapper">' + doc + '</div>',
   components: {
     BeButton
   }
