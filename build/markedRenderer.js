@@ -35,7 +35,7 @@ renderer.code = function(code, lang) {
     code +
     '</div>' +
     '<div class="source">' +
-    hljs.highlightAuto(code).value +
+    hljs.highlight('html', code).value +
     '</div>' +
     '</div>'
 }
