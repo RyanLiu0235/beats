@@ -7,8 +7,19 @@
 输入框的基本用法
 
 ``` html
-<be-input></be-input>
+<be-input v-model="input1"></be-input>
+
+<script>
+	export default {
+		data() {
+			return {
+				input1: '来一段freestyle'
+			}
+		}
+	}
+</script>
 ```
+
 ### 禁止输入的输入框
 
 可以通过给`disabled`参数设置`true`来让输入框禁止输入
@@ -31,5 +42,5 @@
 
 ``` html
 <be-input :count="true"></be-input>
-<be-input type="textarea" :count="true"></be-input>
+<be-input type="textarea" :count="true" style="margin-top: 14px;"></be-input>
 ```

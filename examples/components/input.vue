@@ -4,6 +4,11 @@ import doc from 'docs/input.md'
 
 export default {
   name: 'comp-input',
+  data() {
+    return {
+      input1: '来一段freestyle'
+    }
+  },
   template: '<div class="comp-demo-wrapper">' + doc + '</div>',
   components: {
     BeInput
