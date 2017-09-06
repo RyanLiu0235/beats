@@ -1,6 +1,7 @@
 var hljs = require('highlight.js')
 var marked = require('marked')
 var pinyin = require('node-pinyin')
+var stripTags = require('./strip-tags.js')
 var renderer = new marked.Renderer()
 var comp = ''
 
@@ -32,7 +33,7 @@ renderer.paragraph = function(text) {
 renderer.code = function(code, lang) {
   return '<div class="comp-demo">' +
     '<div class="demo">' +
-    code +
+    stripTags(code, ['script', 'style']) +
     '</div>' +
     '<div class="source">' +
     hljs.highlight('html', code).value +
