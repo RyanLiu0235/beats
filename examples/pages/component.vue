@@ -18,7 +18,7 @@
 </template>
 <script>
 import components from '../components.json'
-import 'highlight.js/styles/googlecode.css'
+import 'highlight.js/styles/github-gist.css'
 
 export default {
   name: 'component-page',
