@@ -21,7 +21,7 @@ renderer.heading = function(text, level) {
   return '<h' + level + ' name="' + py + '" id="' + py + '" class="' + headerClass + '">' +
     text +
     '<a class="comp-block-anchor" href="' +
-    '/#/components/' + comp + '/#' + py +
+    '/components/' + comp + '#' + py +
     '">#</a>' +
     '</h' + level + '>'
 }
