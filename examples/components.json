@@ -1,11 +1,13 @@
 [
 {
   "name": "button",
-  "text": "按钮",
-  "link": "/button"
+  "text": "按钮"
 },
 {
   "name": "input",
-  "text": "输入框",
-  "link": "/input"
+  "text": "输入框"
+},
+{
+  "name": "select",
+  "text": "选择器"
 }]

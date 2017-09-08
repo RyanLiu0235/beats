@@ -17,9 +17,9 @@ export default new Router({
     path: '/components',
     name: 'components',
     component: Component,
-    children: components.map(({ name, link }) => {
+    children: components.map(({ name }) => {
       return {
-        path: `/components${link}`,
+        path: `/components/${name}`,
         name,
         component: resolve => require([`../components/${name}`], resolve)
       }
