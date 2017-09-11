@@ -9,7 +9,7 @@
 ``` html
 <template>
 	<be-select v-model="select1">
-		<be-option v-for="(option, index) in list1" :key="index" :name="option"></be-option>
+		<be-option v-for="(option, index) in list1" :key="index" :name="option" :key="index"></be-option>
 	</be-select>
 </template>
 
@@ -32,7 +32,7 @@
 ``` html
 <template>
 	<be-select v-model="select2">
-		<be-option v-for="(option, index) in list2" :key="index" :name="option.name" :disabled="option.disabled"></be-option>
+		<be-option v-for="(option, index) in list2" :key="index" :name="option.name" :disabled="option.disabled" :key="index"></be-option>
 	</be-select>
 </template>
 

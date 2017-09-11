@@ -1,7 +1,9 @@
 <template>
   <button class="be-button"
     :class="
-    [`be-button--${type}`]
+    [`be-button--${type}`, 
+      disabled && 'is-disabled'
+    ]
     ">
     <span class="be-button_text"><slot></slot></span>
   </button>
@@ -15,6 +17,10 @@ export default {
       default: 'primary',
       // primary: 白底 | info: 蓝底 | text: 灰底
       validator: val => ['primary', 'info', 'text'].indexOf(val) > -1
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   }
 }
@@ -35,6 +41,9 @@ export default {
   border: none;
   white-space: nowrap;
   transition: background-color .2s ease, color .2s ease;
+  &.is-disabled {
+    cursor: not-allowed;
+  }
   &&--text {
     color: #333;
     background-color: #fff;

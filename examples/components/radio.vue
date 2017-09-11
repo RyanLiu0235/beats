@@ -7,7 +7,10 @@ export default {
   data() {
     return {
       radio1: '北京',
-      list1: [{
+      list1: ['北京', '天津', '上海'],
+
+      radio2: '北京',
+      list2: [{
         value: '北京',
         disabled: false
       }, {
