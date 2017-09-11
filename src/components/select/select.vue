@@ -103,12 +103,6 @@ export default {
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     background: #fff;
     overflow: hidden;
-    .be-option {
-      &:hover {
-        background: #e5e9ef;
-        color: #00a1d6;
-      }
-    }
   }
 }
 

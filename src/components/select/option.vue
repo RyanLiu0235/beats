@@ -53,6 +53,20 @@ export default {
   cursor: pointer;
   overflow: hidden;
   white-space: nowrap;
+  box-sizing: border-box;
+  &:hover {
+    background: #e5e9ef;
+    color: #00a1d6;
+  }
+  &.is-disabled {
+    background-color: #f1f1f1;
+    color: #99a2aa;
+    cursor: not-allowed;
+    &:hover {
+      background-color: #f1f1f1;
+      color: #99a2aa;
+    }
+  }
 }
 
 </style>
