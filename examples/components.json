@@ -10,4 +10,8 @@
 {
   "name": "select",
   "text": "选择器"
+},
+{
+  "name": "radio",
+  "text": "单选框"
 }]
