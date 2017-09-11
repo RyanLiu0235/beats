@@ -56,3 +56,26 @@
 	}
 </script>
 ```
+
+### 禁止选择的选择器
+
+通过给`be-select`添加`:disabled="true"`可以禁用整个选择器
+
+``` html
+<template>
+	<be-select v-model="select3" :disabled="true">
+		<be-option v-for="(option, index) in list3" :key="index" :name="option"></be-option>
+	</be-select>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				select3: '张三',
+				list3: ['张三', '李四', '王五']
+			}
+		}
+	}
+</script>
+```

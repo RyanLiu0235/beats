@@ -1,10 +1,14 @@
 <template>
   <div class="be-select"
-    :class="{'be-select-open': isOpen}"
+    :class="{
+      'be-select-open': isOpen,
+      'is-disabled': disabled
+    }"
     v-clickoutside="hide">
     <be-input :readonly="true"
       @click.native="handleStretch"
       v-model="currentValue"
+      :disabled="disabled"
       :placeholder="placeholder">
       <button class="be-select-arrow icon icon-arrow"
         slot="append"></button>
@@ -35,7 +39,11 @@ export default {
       type: [String, Number],
       default: '请选择'
     },
-    placeholder: String
+    placeholder: String,
+    disabled: {
+      type: Boolean,
+      default: false
+    }
   },
   watch: {
     currentValue(val) {
@@ -44,7 +52,9 @@ export default {
   },
   methods: {
     handleStretch() {
-      this.isOpen = !this.isOpen
+      if (!this.disabled) {
+        this.isOpen = !this.isOpen
+      }
     },
     hide() {
       this.isOpen = false

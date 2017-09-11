@@ -19,7 +19,10 @@ export default {
       }, {
         name: '王五',
         disabled: true
-      }]
+      }],
+
+      select3: '张三',
+      list3: ['张三', '李四', '王五']
     }
   },
   template: '<div class="comp-demo-wrapper">' + doc + '</div>',
