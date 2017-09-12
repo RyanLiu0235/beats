@@ -6,8 +6,38 @@
 
 ``` html
 <template>
+	<be-radio-group v-model="radio">
+		<be-radio 
+			v-for="(item, index) in list" 
+			:value="item" 
+			:key="index"
+		></be-radio>
+	</be-radio-group>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				radio: '北京',
+				list: ['北京', '天津', '上海']
+			}
+		}
+	}
+</script>
+```
+
+
+### 按钮单选框
+
+``` html
+<template>
 	<be-radio-group v-model="radio1">
-		<be-radio-button v-for="(item, index) in list1" :value="item" :key="index"></be-radio-button>
+		<be-radio-button 
+			v-for="(item, index) in list1" 
+			:value="item" 
+			:key="index"
+		></be-radio-button>
 	</be-radio-group>
 </template>
 
@@ -28,7 +58,12 @@
 ``` html
 <template>
 	<be-radio-group v-model="radio2">
-		<be-radio-button v-for="(item, index) in list2" :value="item.value" :disabled="item.disabled" :key="index"></be-radio-button>
+		<be-radio-button 
+			v-for="(item, index) in list2" 
+			:value="item.value" 
+			:disabled="item.disabled" 
+			:key="index"
+		></be-radio-button>
 	</be-radio-group>
 </template>
 

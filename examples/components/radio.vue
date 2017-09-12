@@ -1,11 +1,14 @@
 <script>
-import { BeRadioButton, BeRadioGroup } from '@'
+import { BeRadioButton, BeRadio, BeRadioGroup } from '@'
 import doc from 'docs/radio.md'
 
 export default {
   name: 'comp-radio',
   data() {
     return {
+      radio: '北京',
+      list: ['北京', '天津', '上海'],
+
       radio1: '北京',
       list1: ['北京', '天津', '上海'],
 
@@ -28,6 +31,7 @@ export default {
   template: '<div class="comp-demo-wrapper">' + doc + '</div>',
   components: {
     BeRadioButton,
+    BeRadio,
     BeRadioGroup
   }
 }

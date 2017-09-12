@@ -1,5 +1,6 @@
 <template>
-  <be-button :type="isActive ? 'info' : 'primary'"
+  <be-button class="be-radio-button"
+    :type="isActive ? 'info' : 'text'"
     :class="{
       'is-disabled': disabled,
       'is-active': isActive
