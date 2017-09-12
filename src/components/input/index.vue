@@ -108,8 +108,7 @@ export default {
 }
 
 </script>
-<style lang="less"
-  scoped>
+<style lang="less">
 .be-input {
   position: relative;
   color: #222;

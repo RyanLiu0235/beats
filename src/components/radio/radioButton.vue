@@ -1,11 +1,15 @@
 <template>
-  <be-button class="be-radio-button"
-    :type="isActive ? 'info' : 'text'"
-    :class="{
-      'is-disabled': disabled,
-      'is-active': isActive
-    }"
-    @click.native="handleRadioSelect">{{value}}</be-button>
+  <label class="be-radio-button">
+    <input type="radio"
+      class="be-radio__original"
+      :value="value"
+      v-model="model" />
+    <span class="be-radio-button__inner"
+      :class="{
+        'is-disabled': disabled,
+        'is-checked': isActive
+      }">{{value}}</span>
+  </label>
 </template>
 <script>
 import BeButton from '../button'
@@ -30,17 +34,18 @@ export default {
 
       return parent
     },
-    curValue() {
-      return this.parent.currentValue || ''
-    },
     isActive() {
-      return this.curValue === this.value
-    }
-  },
-  methods: {
-    handleRadioSelect() {
-      if (!this.disabled) {
-        this.parent.currentValue = this.value
+      return this.model === this.value
+    },
+    model: {
+      get() {
+        return this.parent.currentValue
+      },
+      set(val) {
+        if (!this.disabled) {
+          this.parent.currentValue = val
+          this.parent.$emit('input', val)
+        }
       }
     }
   },
@@ -50,3 +55,52 @@ export default {
 }
 
 </script>
+<style lang="less">
+.be-radio-button {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  cursor: pointer;
+  &+.be-radio {
+    margin-left: 15px;
+  }
+  &__inner {
+    position: relative;
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 16px;
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+    outline: none;
+    border: none;
+    white-space: nowrap;
+    transition: background-color .2s ease,
+    color .2s ease;
+    &:hover {
+      background-color: darken(#fff, 5%);
+    }
+    &.is-disabled {
+      cursor: not-allowed;
+    }
+    &.is-checked {
+      color: #fff;
+      background-color: #37c8f7;
+      &:hover {
+        background-color: darken(#37c8f7, 5%);
+      }
+    }
+    &&.is-disabled {
+      color: #6d757a;
+      background-color: #f1f3f7;
+      &:hover {
+        background-color: #f1f3f7;
+      }
+    }
+  }
+}
+
+</style>

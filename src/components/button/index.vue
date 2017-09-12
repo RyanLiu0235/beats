@@ -26,8 +26,7 @@ export default {
 }
 
 </script>
-<style lang="less"
-  scoped>
+<style lang="less">
 .be-button {
   position: relative;
   display: inline-block;

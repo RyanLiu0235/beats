@@ -4,8 +4,7 @@
       'is-disabled': disabled
     }">
     <span class="be-radio--input">
-      <input 
-        type="radio"
+      <input type="radio"
         class="be-radio__original" 
         :value="value"
         v-model="model" />
@@ -38,19 +37,18 @@ export default {
 
       return parent
     },
-    curValue() {
-      return this.parent.currentValue || ''
-    },
     isActive() {
-      return this.curValue === this.value
+      return this.model === this.value
     },
     model: {
       get() {
         return this.parent.currentValue
       },
       set(val) {
-        this.parent.currentValue = val
-        this.parent.$emit('input', val)
+        if (!this.disabled) {
+          this.parent.currentValue = val
+          this.parent.$emit('input', val)
+        }
       }
     }
   }
