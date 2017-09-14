@@ -1,24 +1,25 @@
 <template>
-  <label class="be-radio"
+  <label class="be-checkbox"
     :class="{
       'is-disabled': disabled
     }">
-    <span class="be-radio--input">
-      <input type="radio"
-        class="be-radio__original" 
+    <span class="be-checkbox--input">
+      <input type="checkbox"
+        class="be-checkbox__original" 
         :value="value"
+        :disabled="disabled"
         v-model="model" />
-      <span class="be-radio__inner"
+      <span class="be-checkbox__inner"
         :class="{
           'is-checked': isActive
         }"></span>
     </span>
-    <span class="be-radio--label">{{value}}</span>
+    <span class="be-checkbox--label">{{value}}</span>
   </label>
 </template>
 <script>
 export default {
-  componentName: 'be-radio',
+  componentName: 'be-checkbox',
   props: {
     disabled: {
       type: Boolean,
@@ -28,25 +29,31 @@ export default {
   },
   computed: {
     parent() {
-      // radio-button组件必然是被radio-group组件包起来的
-      // radio-group组件的data里有一个isRadioGroup标识
+      // checkbox组件必然是被checkbox-group组件包起来的
+      // checkbox-group组件的data里有一个ischeckboxGroup标识
       let parent = this.$parent
-      while (!parent.isRadioGroup) {
+      while (!parent.ischeckboxGroup) {
         parent = parent.$parent
       }
 
       return parent
     },
     isActive() {
-      return this.model === this.value
+      return this.model
     },
     model: {
       get() {
-        return this.parent.currentValue
+        return this.parent.currentValue.indexOf(this.value) > -1
       },
       set(val) {
         if (!this.disabled) {
-          this.parent.currentValue = val
+          const value = this.value
+          if (val) {
+            this.parent.currentValue.push(value)
+          } else {
+            const index = this.parent.currentValue.indexOf(value)
+            this.parent.currentValue.splice(index, 1)
+          }
         }
       }
     }
@@ -55,14 +62,14 @@ export default {
 
 </script>
 <style lang="less">
-.be-radio {
+.be-checkbox {
   position: relative;
   display: inline-block;
   white-space: nowrap;
   height: 20px;
   font-size: 0;
   cursor: pointer;
-  &+.be-radio {
+  &+.be-checkbox {
     margin-left: 15px;
   }
   &--input {
@@ -93,28 +100,30 @@ export default {
     height: 18px;
     background: #fff;
     border: 1px solid #ccd0d7;
-    border-radius: 50%;
+    border-radius: 4px;
     transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86);
     box-sizing: border-box;
     &.is-checked {
+      background: #00a1d6;
       border-color: #00a1d6;
       &:after {
-        background: #00a1d6;
-        border-color: #00a1d6;
-        transform: scale(1);
+        transform: scale(1) rotate(45deg);
         opacity: 1;
       }
     }
     &:after {
       position: absolute;
       content: '';
-      top: 4px;
-      left: 4px;
-      width: 8px;
+      top: 2px;
+      left: 5px;
+      width: 4px;
       height: 8px;
-      border-radius: 50%;
-      transform: scale(0);
+      background: #00a1d6;
       opacity: 0;
+      border: 2px solid #fff;
+      border-top-width: 0;
+      border-left-width: 0;
+      transform: scale(0) rotate(45deg);
       transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86);
     }
   }

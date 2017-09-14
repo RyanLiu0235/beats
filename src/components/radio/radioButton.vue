@@ -44,7 +44,6 @@ export default {
       set(val) {
         if (!this.disabled) {
           this.parent.currentValue = val
-          this.parent.$emit('input', val)
         }
       }
     }

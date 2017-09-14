@@ -14,4 +14,8 @@
 {
   "name": "radio",
   "text": "单选框"
+},
+{
+  "name": "checkbox",
+  "text": "复选框"
 }]
