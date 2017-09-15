@@ -11,10 +11,10 @@
         v-model="model" />
       <span class="be-checkbox__inner"
         :class="{
-          'is-checked': isActive
+          'is-checked': model
         }"></span>
     </span>
-    <span class="be-checkbox--label">{{value}}</span>
+    <span class="be-checkbox--label">{{label}}</span>
   </label>
 </template>
 <script>
@@ -25,34 +25,49 @@ export default {
       type: Boolean,
       default: false
     },
-    value: [String, Number]
+    value: [String, Number, Boolean],
+    label: [String, Number]
   },
   computed: {
+    // 如果当前组件是被checkbox-group组件包裹的，就会有parent
+    // 如果没有就返回undefined
     parent() {
-      // checkbox组件必然是被checkbox-group组件包起来的
-      // checkbox-group组件的data里有一个ischeckboxGroup标识
       let parent = this.$parent
+
       while (!parent.ischeckboxGroup) {
-        parent = parent.$parent
+        if (parent.$parent) {
+          parent = parent.$parent
+        } else {
+          return undefined
+        }
       }
 
       return parent
     },
-    isActive() {
-      return this.model
+    // 是否有被checkbox-group组件包裹
+    isGroup() {
+      return this.parent !== undefined
     },
     model: {
       get() {
-        return this.parent.currentValue.indexOf(this.value) > -1
+        if (this.isGroup) {
+          return this.parent.currentValue.indexOf(this.label) > -1
+        } else {
+          return this.value
+        }
       },
       set(val) {
         if (!this.disabled) {
-          const value = this.value
-          if (val) {
-            this.parent.currentValue.push(value)
+          if (this.isGroup) {
+            const label = this.label
+            if (val) {
+              this.parent.currentValue.push(label)
+            } else {
+              const index = this.parent.currentValue.indexOf(label)
+              this.parent.currentValue.splice(index, 1)
+            }
           } else {
-            const index = this.parent.currentValue.indexOf(value)
-            this.parent.currentValue.splice(index, 1)
+            this.$emit('input', val)
           }
         }
       }
