@@ -23,7 +23,8 @@
 ``` html
 <template>
 	<be-switch v-model="switcher1"
-		:disabled="true"></be-switch>
+		:disabled="true"
+	></be-switch>
 </template>
 
 <script>
@@ -41,7 +42,8 @@
 <template>
 	<be-switch v-model="switcher2"
 		on-label="开启"
-		off-label="关闭"></be-switch>
+		off-label="关闭"
+	></be-switch>
 </template>
 
 <script>
