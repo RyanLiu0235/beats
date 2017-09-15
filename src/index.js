@@ -7,6 +7,7 @@ import BeRadioButton from './components/radio/radioButton'
 import BeRadioGroup from './components/radio/radioGroup'
 import BeCheckbox from './components/checkbox/checkbox'
 import BeCheckboxGroup from './components/checkbox/checkboxGroup'
+import BeSwitch from './components/switch'
 
 export {
   BeButton,
@@ -17,5 +18,6 @@ export {
   BeRadioButton,
   BeRadioGroup,
   BeCheckbox,
-  BeCheckboxGroup
+  BeCheckboxGroup,
+  BeSwitch
 }

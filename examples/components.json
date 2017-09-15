@@ -18,4 +18,8 @@
 {
   "name": "checkbox",
   "text": "复选框"
+},
+{
+  "name": "switch",
+  "text": "开关"
 }]
