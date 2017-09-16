@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
-    "build": "node build/build.js",
+    "build:docs": "node build/build.js",
     "lint:fix": "eslint --ext .js,.vue --fix src",
     "lint": "eslint --ext .js,.vue src"
   },
