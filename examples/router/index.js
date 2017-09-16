@@ -10,16 +10,16 @@ export default new Router({
   linkActiveClass: 'active-link',
   mode: 'history',
   routes: [{
-    path: '/',
+    path: '/beats',
     name: 'index',
     component: Index
   }, {
-    path: '/components',
+    path: '/beats/components',
     name: 'components',
     component: Component,
     children: components.map(({ name }) => {
       return {
-        path: `/components/${name}`,
+        path: `/beats/components/${name}`,
         name,
         component: resolve => require([`../components/${name}`], resolve)
       }
