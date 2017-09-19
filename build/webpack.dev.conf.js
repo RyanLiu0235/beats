@@ -12,6 +12,11 @@ Object.keys(baseWebpackConfig.entry).forEach(function(name) {
 })
 
 module.exports = merge(baseWebpackConfig, {
+  output: {
+    path: path.resolve(__dirname, '../docs'),
+    filename: '[name].js',
+    publicPath: '/'
+  },
   module: {
     rules: utils.styleLoaders({ sourceMap: true })
   },
@@ -27,7 +32,7 @@ module.exports = merge(baseWebpackConfig, {
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template:  path.join(__dirname, '..', 'examples/index.html'),
+      template: path.join(__dirname, '..', 'examples/index.html'),
       inject: true
     }),
     new FriendlyErrorsPlugin()

@@ -12,11 +12,6 @@ module.exports = {
   entry: {
     main: './examples/main.js'
   },
-  output: {
-    path: path.resolve(__dirname, '../docs'),
-    filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production' ? '/beats/' : '/'
-  },
   resolve: {
     extensions: ['.js', '.vue', '.json', '.css', '.less'],
     alias: {
