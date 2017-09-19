@@ -1,7 +1,6 @@
 var path = require('path')
 var fs = require('fs')
 var utils = require('./utils')
-var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 var renderer = require('./markedRenderer')
 
@@ -11,13 +10,12 @@ function resolve(dir) {
 
 module.exports = {
   entry: {
-    app: './examples/main.js'
+    main: './examples/main.js'
   },
   output: {
-    path: config.build.assetsRoot,
+    path: path.resolve(__dirname, '../docs'),
     filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production' ?
-      config.build.assetsPublicPath : config.dev.assetsPublicPath
+    publicPath: process.env.NODE_ENV === 'production' ? '/beats/' : '/'
   },
   resolve: {
     extensions: ['.js', '.vue', '.json', '.css', '.less'],
@@ -55,27 +53,6 @@ module.exports = {
       test: /\.js$/,
       loader: 'babel-loader',
       include: [resolve('src'), resolve('examples'), resolve('test')]
-    }, {
-      test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-      loader: 'url-loader',
-      options: {
-        limit: 10000,
-        name: utils.assetsPath('img/[name].[hash:7].[ext]')
-      }
-    }, {
-      test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
-      loader: 'url-loader',
-      options: {
-        limit: 10000,
-        name: utils.assetsPath('media/[name].[hash:7].[ext]')
-      }
-    }, {
-      test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-      loader: 'url-loader',
-      options: {
-        limit: 10000,
-        name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
-      }
     }]
   }
 }
