@@ -1,6 +1,6 @@
 # beats
 
-> A Vue.js project
+beats is a set of UI Components based on Vue.js 2.x, and it's still under development.
 
 ## Build Setup
 
@@ -9,13 +9,11 @@
 npm install
 
 # serve with hot reload at localhost:8080
-npm run dev
+npm run start
 
-# build for production with minification
-npm run build
+# build docs for production with minification
+npm run build:docs
 
-# build for production and view the bundle analyzer report
-npm run build --report
+# build dist for production with minification
+npm run build:dist
 ```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
